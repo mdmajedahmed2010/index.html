@@ -161,3 +161,1087 @@
 
 </body>
 </html>
+
+
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÉLITE COUTURE - Luxury Fashion Redefined</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+        
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        .font-inter { font-family: 'Inter', sans-serif; }
+        .font-cormorant { font-family: 'Cormorant Garamond', serif; }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 25%, #2d2d2d 50%, #1a1a1a 75%, #0f0f0f 100%);
+        }
+        
+        .luxury-gradient {
+            background: linear-gradient(45deg, #d4af37, #f4d03f, #d4af37);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideInLeft 0.8s ease forwards;
+        }
+        
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            animation: slideInRight 0.8s ease forwards;
+        }
+        
+        @keyframes slideInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            background: linear-gradient(45deg, #d4af37, #f4d03f);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .btn-luxury {
+            background: linear-gradient(45deg, #d4af37, #f4d03f, #d4af37);
+            background-size: 200% 200%;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-luxury::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .btn-luxury:hover::before {
+            left: 100%;
+        }
+        
+        .btn-luxury:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.4);
+            background-position: 100% 50%;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .product-image {
+            height: 300px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .product-card:hover .product-overlay {
+            opacity: 1;
+        }
+        
+        .emotional-banner {
+            background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(0,0,0,0.6)), 
+                        linear-gradient(45deg, #d4af37, #f4d03f);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .emotional-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="40" cy="80" r="1.5" fill="rgba(255,255,255,0.08)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .logo-animation {
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .filter-btn {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .filter-btn.active {
+            background: linear-gradient(45deg, #d4af37, #f4d03f);
+            color: black;
+            border-color: #d4af37;
+        }
+        
+        .filter-btn:hover {
+            border-color: #d4af37;
+            color: #d4af37;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+        }
+        
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80%;
+            overflow-y: auto;
+            transform: scale(0.7);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .modal.show .modal-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+        
+        .cart-count {
+            background: linear-gradient(45deg, #dc2626, #ef4444);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body class="h-full font-inter bg-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-lg border-b border-gray-100 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-4">
+                    <div class="logo-animation">
+                        <svg class="w-12 h-12" viewBox="0 0 100 100" fill="none">
+                            <circle cx="50" cy="50" r="45" fill="url(#logoGradient)" stroke="#d4af37" stroke-width="2"/>
+                            <path d="M30 35 L50 25 L70 35 L70 65 L50 75 L30 65 Z" fill="white"/>
+                            <circle cx="50" cy="50" r="8" fill="#d4af37"/>
+                            <defs>
+                                <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#1a1a1a"/>
+                                    <stop offset="100%" style="stop-color:#2d2d2d"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="font-playfair text-3xl font-bold text-gray-900">ÉLITE COUTURE</div>
+                </div>
+                
+                <div class="hidden lg:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-gray-900 font-medium">Home</a>
+                    <a href="#collections" class="nav-link text-gray-700 hover:text-gray-900 font-medium">Collections</a>
+                    <a href="#products" class="nav-link text-gray-700 hover:text-gray-900 font-medium">Products</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-gray-900 font-medium">About</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-gray-900 font-medium">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-6">
+                    <button class="text-gray-700 hover:text-gray-900 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </button>
+                    <button class="text-gray-700 hover:text-gray-900 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </button>
+                    <button onclick="toggleCart()" class="text-gray-700 hover:text-gray-900 relative transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                        <span id="cart-count" class="cart-count absolute -top-2 -right-2 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Emotional Imagery -->
+    <section id="home" class="hero-gradient text-white min-h-full flex items-center relative overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-yellow-400/20 to-yellow-600/20 rounded-full blur-xl animate-pulse"></div>
+            <div class="absolute bottom-20 right-10 w-48 h-48 bg-gradient-to-br from-purple-400/20 to-pink-600/20 rounded-full blur-xl animate-pulse" style="animation-delay: 1s;"></div>
+            <div class="absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-br from-blue-400/10 to-cyan-600/10 rounded-full blur-2xl animate-pulse" style="animation-delay: 2s;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="fade-in">
+                    <div class="mb-6">
+                        <span class="luxury-gradient text-transparent bg-clip-text font-cormorant text-xl font-semibold tracking-wider">EXCLUSIVE COLLECTION 2024</span>
+                    </div>
+                    <h1 class="font-playfair text-6xl lg:text-8xl font-bold mb-8 leading-tight">
+                        Where
+                        <span class="luxury-gradient text-transparent bg-clip-text">Dreams</span>
+                        Meet Fashion
+                    </h1>
+                    <p class="text-2xl text-gray-300 mb-10 leading-relaxed font-light">
+                        Experience the pinnacle of luxury fashion. Each piece tells a story of passion, craftsmanship, and timeless elegance that transcends ordinary style.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-6">
+                        <button onclick="scrollToProducts()" class="btn-luxury text-black px-10 py-5 rounded-full font-semibold text-lg tracking-wide">
+                            Explore Collection
+                        </button>
+                        <button class="border-2 border-white text-white px-10 py-5 rounded-full font-semibold text-lg hover:bg-white hover:text-black transition-all duration-300">
+                            Watch Our Story
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="slide-in-right relative">
+                    <!-- Emotional Fashion Illustration -->
+                    <div class="relative">
+                        <div class="luxury-gradient rounded-3xl p-8 transform rotate-3 shadow-2xl">
+                            <div class="bg-white rounded-2xl p-8 transform -rotate-6">
+                                <svg class="w-full h-96" viewBox="0 0 400 400" fill="none">
+                                    <!-- Elegant woman silhouette -->
+                                    <path d="M200 50 C180 50, 160 70, 160 90 L160 140 C160 160, 140 180, 120 200 L120 320 C120 340, 140 360, 160 360 L240 360 C260 360, 280 340, 280 320 L280 200 C260 180, 240 160, 240 140 L240 90 C240 70, 220 50, 200 50 Z" fill="#1a1a1a"/>
+                                    <!-- Hair -->
+                                    <path d="M200 50 C170 45, 150 65, 155 85 C160 75, 180 70, 200 75 C220 70, 240 75, 245 85 C250 65, 230 45, 200 50 Z" fill="#2d2d2d"/>
+                                    <!-- Face -->
+                                    <circle cx="200" cy="80" r="20" fill="#f4d03f"/>
+                                    <!-- Dress details -->
+                                    <circle cx="200" cy="100" r="8" fill="#d4af37"/>
+                                    <rect x="190" y="140" width="20" height="6" fill="#d4af37" rx="3"/>
+                                    <rect x="185" y="160" width="30" height="4" fill="#d4af37" rx="2"/>
+                                    <rect x="180" y="180" width="40" height="4" fill="#d4af37" rx="2"/>
+                                    <!-- Accessories -->
+                                    <circle cx="180" cy="85" r="3" fill="#d4af37"/>
+                                    <circle cx="220" cy="85" r="3" fill="#d4af37"/>
+                                    <!-- Flowing fabric -->
+                                    <path d="M120 200 Q100 220, 110 240 Q120 260, 100 280 Q90 300, 120 320" stroke="#d4af37" stroke-width="2" fill="none"/>
+                                    <path d="M280 200 Q300 220, 290 240 Q280 260, 300 280 Q310 300, 280 320" stroke="#d4af37" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <!-- Floating elements -->
+                        <div class="absolute -top-4 -left-4 w-16 h-16 luxury-gradient rounded-full opacity-80 animate-bounce"></div>
+                        <div class="absolute -bottom-4 -right-4 w-12 h-12 bg-white rounded-full opacity-80 animate-bounce" style="animation-delay: 0.5s;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emotional Banner 1 -->
+    <section class="emotional-banner py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="fade-in">
+                <h2 class="font-playfair text-5xl lg:text-6xl font-bold text-white mb-6">
+                    "Fashion is the armor to survive the reality of everyday life"
+                </h2>
+                <p class="text-2xl text-gray-200 font-light italic">- Bill Cunningham</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Collections -->
+    <section id="collections" class="py-24 bg-gradient-to-br from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <div class="slide-in-left">
+                    <span class="luxury-gradient text-transparent bg-clip-text font-cormorant text-xl font-semibold tracking-wider">CURATED COLLECTIONS</span>
+                </div>
+                <h2 class="font-playfair text-5xl lg:text-6xl font-bold text-gray-900 mb-6 fade-in">Masterpieces of Style</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in">Each collection represents months of careful curation, bringing together the finest materials and most innovative designs</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Collection Card 1 -->
+                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-xl">
+                    <div class="h-80 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center relative overflow-hidden">
+                        <svg class="w-32 h-32 text-white" viewBox="0 0 120 120" fill="currentColor">
+                            <path d="M60 15 C45 15, 35 25, 35 35 L35 50 C35 60, 30 70, 25 80 L25 100 C25 105, 30 110, 35 110 L85 110 C90 110, 95 105, 95 100 L95 80 C90 70, 85 60, 85 50 L85 35 C85 25, 75 15, 60 15 Z"/>
+                            <circle cx="60" cy="30" r="12" fill="#d4af37"/>
+                            <rect x="50" y="55" width="20" height="4" fill="#d4af37" rx="2"/>
+                        </svg>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <div class="text-sm font-semibold">EVENING</div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-playfair text-3xl font-semibold mb-3">Midnight Elegance</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Sophisticated pieces that capture the mystery and allure of the night</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-3xl font-bold text-gray-900">From $599</span>
+                            <button class="luxury-gradient text-black px-8 py-3 rounded-full hover:shadow-lg transition-all font-semibold">
+                                Explore
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collection Card 2 -->
+                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-xl">
+                    <div class="h-80 bg-gradient-to-br from-blue-800 to-indigo-900 flex items-center justify-center relative overflow-hidden">
+                        <svg class="w-32 h-32 text-white" viewBox="0 0 120 120" fill="currentColor">
+                            <rect x="30" y="25" width="60" height="70" rx="8"/>
+                            <rect x="35" y="20" width="50" height="12" rx="3"/>
+                            <circle cx="45" cy="40" r="4"/>
+                            <circle cx="75" cy="40" r="4"/>
+                            <rect x="40" y="55" width="40" height="3" fill="#d4af37" rx="1"/>
+                            <rect x="35" y="65" width="50" height="2" fill="#d4af37" rx="1"/>
+                        </svg>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <div class="text-sm font-semibold">BUSINESS</div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-playfair text-3xl font-semibold mb-3">Executive Power</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Command respect with our premium business collection</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-3xl font-bold text-gray-900">From $399</span>
+                            <button class="luxury-gradient text-black px-8 py-3 rounded-full hover:shadow-lg transition-all font-semibold">
+                                Explore
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collection Card 3 -->
+                <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-xl">
+                    <div class="h-80 bg-gradient-to-br from-purple-800 to-pink-900 flex items-center justify-center relative overflow-hidden">
+                        <svg class="w-32 h-32 text-white" viewBox="0 0 120 120" fill="currentColor">
+                            <path d="M60 20 C40 20, 25 30, 25 40 L25 55 C25 65, 20 75, 15 85 L15 100 C15 105, 20 110, 25 110 L95 110 C100 110, 105 105, 105 100 L105 85 C100 75, 95 65, 95 55 L95 40 C95 30, 80 20, 60 20 Z"/>
+                            <circle cx="60" cy="35" r="10" fill="#d4af37"/>
+                            <path d="M45 55 Q60 65, 75 55" stroke="#d4af37" stroke-width="3" fill="none"/>
+                        </svg>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <div class="text-sm font-semibold">CASUAL</div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-playfair text-3xl font-semibold mb-3">Effortless Chic</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Luxury comfort for your everyday adventures</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-3xl font-bold text-gray-900">From $249</span>
+                            <button class="luxury-gradient text-black px-8 py-3 rounded-full hover:shadow-lg transition-all font-semibold">
+                                Explore
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emotional Banner 2 -->
+    <section class="emotional-banner py-16 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="fade-in">
+                <h2 class="font-playfair text-4xl lg:text-5xl font-bold text-white mb-4">
+                    Every Thread Tells a Story
+                </h2>
+                <p class="text-xl text-gray-200 font-light">Crafted with passion, worn with pride</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="luxury-gradient text-transparent bg-clip-text font-cormorant text-xl font-semibold tracking-wider">COMPLETE COLLECTION</span>
+                <h2 class="font-playfair text-5xl lg:text-6xl font-bold text-gray-900 mb-6">100 Exclusive Pieces</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Discover our complete range of luxury fashion items, each carefully selected for the discerning individual</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button onclick="filterProducts('all')" class="filter-btn active px-8 py-3 rounded-full font-semibold transition-all">All Items</button>
+                <button onclick="filterProducts('dresses')" class="filter-btn px-8 py-3 rounded-full font-semibold transition-all">Dresses</button>
+                <button onclick="filterProducts('suits')" class="filter-btn px-8 py-3 rounded-full font-semibold transition-all">Suits</button>
+                <button onclick="filterProducts('accessories')" class="filter-btn px-8 py-3 rounded-full font-semibold transition-all">Accessories</button>
+                <button onclick="filterProducts('shoes')" class="filter-btn px-8 py-3 rounded-full font-semibold transition-all">Shoes</button>
+                <button onclick="filterProducts('bags')" class="filter-btn px-8 py-3 rounded-full font-semibold transition-all">Bags</button>
+            </div>
+
+            <!-- Products Grid -->
+            <div id="products-grid" class="product-grid">
+                <!-- Products will be dynamically generated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-gradient-to-br from-gray-900 to-black text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="slide-in-left">
+                    <span class="luxury-gradient text-transparent bg-clip-text font-cormorant text-xl font-semibold tracking-wider">OUR LEGACY</span>
+                    <h2 class="font-playfair text-5xl lg:text-6xl font-bold mb-8">Crafted with Soul</h2>
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                        For over three decades, ÉLITE COUTURE has been the epitome of luxury fashion. We don't just create clothes; we craft experiences, emotions, and memories that last a lifetime.
+                    </p>
+                    <p class="text-lg text-gray-400 mb-10 leading-relaxed">
+                        Every piece in our collection is a testament to our unwavering commitment to excellence. From the initial sketch to the final stitch, we pour our hearts into creating fashion that transcends trends and becomes timeless.
+                    </p>
+                    <button class="btn-luxury text-black px-10 py-4 rounded-full font-semibold text-lg">
+                        Discover Our Journey
+                    </button>
+                </div>
+                
+                <div class="slide-in-right">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-gradient-to-br from-gray-800 to-gray-700 rounded-3xl p-8 text-center transform hover:scale-105 transition-transform">
+                            <div class="text-4xl font-bold luxury-gradient text-transparent bg-clip-text mb-3">30+</div>
+                            <div class="text-gray-300 font-medium">Years of Excellence</div>
+                        </div>
+                        <div class="bg-gradient-to-br from-gray-800 to-gray-700 rounded-3xl p-8 text-center transform hover:scale-105 transition-transform">
+                            <div class="text-4xl font-bold luxury-gradient text-transparent bg-clip-text mb-3">1M+</div>
+                            <div class="text-gray-300 font-medium">Happy Customers</div>
+                        </div>
+                        <div class="bg-gradient-to-br from-gray-800 to-gray-700 rounded-3xl p-8 text-center transform hover:scale-105 transition-transform">
+                            <div class="text-4xl font-bold luxury-gradient text-transparent bg-clip-text mb-3">75+</div>
+                            <div class="text-gray-300 font-medium">Countries Worldwide</div>
+                        </div>
+                        <div class="bg-gradient-to-br from-gray-800 to-gray-700 rounded-3xl p-8 text-center transform hover:scale-105 transition-transform">
+                            <div class="text-4xl font-bold luxury-gradient text-transparent bg-clip-text mb-3">100%</div>
+                            <div class="text-gray-300 font-medium">Handcrafted Quality</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emotional Banner 3 -->
+    <section class="emotional-banner py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="fade-in">
+                <h2 class="font-playfair text-5xl lg:text-6xl font-bold text-white mb-6">
+                    Fashion Fades, Style is Eternal
+                </h2>
+                <p class="text-2xl text-gray-200 font-light italic">Invest in pieces that define you</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-24 luxury-gradient">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-playfair text-5xl lg:text-6xl font-bold text-black mb-8">Join the Elite</h2>
+            <p class="text-2xl text-gray-800 mb-12">Be the first to discover our latest collections and exclusive offers</p>
+            
+            <form class="flex flex-col sm:flex-row gap-6 max-w-lg mx-auto" onsubmit="handleNewsletter(event)">
+                <input 
+                    type="email" 
+                    placeholder="Enter your email address" 
+                    class="flex-1 px-8 py-5 rounded-full text-gray-900 focus:outline-none focus:ring-4 focus:ring-white/50 text-lg"
+                    required
+                >
+                <button type="submit" class="bg-black text-white px-10 py-5 rounded-full font-semibold text-lg hover:bg-gray-800 transition-all whitespace-nowrap">
+                    Subscribe Now
+                </button>
+            </form>
+            
+            <div id="newsletter-message" class="mt-6 text-black font-semibold text-lg hidden">
+                ✨ Welcome to the ÉLITE family! Check your email for exclusive offers.
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-black text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-5 gap-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <svg class="w-12 h-12" viewBox="0 0 100 100" fill="none">
+                            <circle cx="50" cy="50" r="45" fill="url(#footerLogoGradient)" stroke="#d4af37" stroke-width="2"/>
+                            <path d="M30 35 L50 25 L70 35 L70 65 L50 75 L30 65 Z" fill="white"/>
+                            <circle cx="50" cy="50" r="8" fill="#d4af37"/>
+                            <defs>
+                                <linearGradient id="footerLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#d4af37"/>
+                                    <stop offset="100%" style="stop-color:#f4d03f"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="font-playfair text-3xl font-bold">ÉLITE COUTURE</div>
+                    </div>
+                    <p class="text-gray-400 mb-6 text-lg leading-relaxed">Redefining luxury fashion with timeless elegance and uncompromising quality. Where dreams meet reality.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors transform hover:scale-110">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors transform hover:scale-110">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.097.118.112.221.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z.017-.001z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors transform hover:scale-110">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-playfair text-2xl font-semibold mb-6">Collections</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">New Arrivals</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Evening Wear</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Business Attire</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Casual Luxury</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Accessories</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Limited Edition</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-playfair text-2xl font-semibold mb-6">Support</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Size Guide</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Shipping Info</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Returns & Exchanges</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Care Instructions</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact Support</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-playfair text-2xl font-semibold mb-6">Contact</h3>
+                    <div class="space-y-4 text-gray-400">
+                        <p class="flex items-start space-x-3">
+                            <span class="text-xl">🏢</span>
+                            <span>123 Fashion Avenue<br>New York, NY 10001</span>
+                        </p>
+                        <p class="flex items-center space-x-3">
+                            <span class="text-xl">📞</span>
+                            <span>+1 (555) 123-ELITE</span>
+                        </p>
+                        <p class="flex items-center space-x-3">
+                            <span class="text-xl">✉️</span>
+                            <span>hello@elitecouture.com</span>
+                        </p>
+                        <p class="flex items-center space-x-3">
+                            <span class="text-xl">🕒</span>
+                            <span>Mon-Sat: 10AM-8PM</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-16 pt-8 text-center text-gray-400">
+                <p class="text-lg">&copy; 2024 ÉLITE COUTURE. All rights reserved. | Privacy Policy | Terms of Service | Sustainability</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="font-playfair text-3xl font-bold">Shopping Cart</h2>
+                <button onclick="toggleCart()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+            <div id="cart-items" class="space-y-4 mb-6">
+                <p class="text-gray-500 text-center py-8">Your cart is empty</p>
+            </div>
+            <div class="border-t pt-4">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="font-semibold text-xl">Total:</span>
+                    <span id="cart-total" class="font-bold text-2xl">$0.00</span>
+                </div>
+                <button class="w-full btn-luxury text-black py-4 rounded-full font-semibold text-lg">
+                    Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Product data - 100 luxury items
+        const products = [
+            // Dresses (25 items)
+            { id: 1, name: "Midnight Serenade Gown", price: 899, category: "dresses", image: "dress" },
+            { id: 2, name: "Celestial Dreams Dress", price: 749, category: "dresses", image: "dress" },
+            { id: 3, name: "Velvet Whisper Evening Dress", price: 1299, category: "dresses", image: "dress" },
+            { id: 4, name: "Golden Hour Maxi", price: 599, category: "dresses", image: "dress" },
+            { id: 5, name: "Silk Cascade Cocktail Dress", price: 849, category: "dresses", image: "dress" },
+            { id: 6, name: "Ethereal Mist Gown", price: 1199, category: "dresses", image: "dress" },
+            { id: 7, name: "Crimson Elegance Dress", price: 699, category: "dresses", image: "dress" },
+            { id: 8, name: "Moonlight Sonata Gown", price: 1499, category: "dresses", image: "dress" },
+            { id: 9, name: "Pearl Essence Dress", price: 799, category: "dresses", image: "dress" },
+            { id: 10, name: "Sapphire Dreams Evening Wear", price: 1099, category: "dresses", image: "dress" },
+            { id: 11, name: "Rose Gold Reverie Dress", price: 649, category: "dresses", image: "dress" },
+            { id: 12, name: "Obsidian Night Gown", price: 1399, category: "dresses", image: "dress" },
+            { id: 13, name: "Champagne Bubbles Dress", price: 899, category: "dresses", image: "dress" },
+            { id: 14, name: "Emerald Enchantment Gown", price: 1249, category: "dresses", image: "dress" },
+            { id: 15, name: "Ivory Tower Dress", price: 749, category: "dresses", image: "dress" },
+            { id: 16, name: "Burgundy Bliss Evening Dress", price: 999, category: "dresses", image: "dress" },
+            { id: 17, name: "Silver Starlight Gown", price: 1199, category: "dresses", image: "dress" },
+            { id: 18, name: "Coral Sunset Dress", price: 599, category: "dresses", image: "dress" },
+            { id: 19, name: "Platinum Princess Gown", price: 1599, category: "dresses", image: "dress" },
+            { id: 20, name: "Lavender Luxury Dress", price: 849, category: "dresses", image: "dress" },
+            { id: 21, name: "Teal Temptation Gown", price: 1099, category: "dresses", image: "dress" },
+            { id: 22, name: "Blush Beauty Dress", price: 699, category: "dresses", image: "dress" },
+            { id: 23, name: "Copper Cascade Gown", price: 1299, category: "dresses", image: "dress" },
+            { id: 24, name: "Mint Majesty Dress", price: 799, category: "dresses", image: "dress" },
+            { id: 25, name: "Onyx Opulence Gown", price: 1499, category: "dresses", image: "dress" },
+
+            // Suits (25 items)
+            { id: 26, name: "Executive Power Suit", price: 1299, category: "suits", image: "suit" },
+            { id: 27, name: "Charcoal Confidence Blazer Set", price: 899, category: "suits", image: "suit" },
+            { id: 28, name: "Navy Authority Suit", price: 1199, category: "suits", image: "suit" },
+            { id: 29, name: "Pinstripe Prestige Collection", price: 1499, category: "suits", image: "suit" },
+            { id: 30, name: "Midnight Commander Suit", price: 1399, category: "suits", image: "suit" },
+            { id: 31, name: "Silver Sophistication Set", price: 1099, category: "suits", image: "suit" },
+            { id: 32, name: "Burgundy Business Blazer", price: 799, category: "suits", image: "suit" },
+            { id: 33, name: "Platinum Professional Suit", price: 1599, category: "suits", image: "suit" },
+            { id: 34, name: "Graphite Grace Collection", price: 999, category: "suits", image: "suit" },
+            { id: 35, name: "Emerald Executive Set", price: 1249, category: "suits", image: "suit" },
+            { id: 36, name: "Camel Cashmere Suit", price: 1799, category: "suits", image: "suit" },
+            { id: 37, name: "Royal Blue Regency", price: 1399, category: "suits", image: "suit" },
+            { id: 38, name: "Cream Confidence Blazer", price: 899, category: "suits", image: "suit" },
+            { id: 39, name: "Slate Sophistication Suit", price: 1199, category: "suits", image: "suit" },
+            { id: 40, name: "Mahogany Mastery Set", price: 1499, category: "suits", image: "suit" },
+            { id: 41, name: "Pearl Power Suit", price: 1299, category: "suits", image: "suit" },
+            { id: 42, name: "Olive Opulence Blazer", price: 999, category: "suits", image: "suit" },
+            { id: 43, name: "Copper Corporate Collection", price: 1099, category: "suits", image: "suit" },
+            { id: 44, name: "Indigo Influence Suit", price: 1399, category: "suits", image: "suit" },
+            { id: 45, name: "Taupe Triumph Set", price: 899, category: "suits", image: "suit" },
+            { id: 46, name: "Crimson Command Blazer", price: 1249, category: "suits", image: "suit" },
+            { id: 47, name: "Sage Success Suit", price: 1199, category: "suits", image: "suit" },
+            { id: 48, name: "Amber Authority Collection", price: 1599, category: "suits", image: "suit" },
+            { id: 49, name: "Violet Victory Blazer", price: 999, category: "suits", image: "suit" },
+            { id: 50, name: "Bronze Business Suit", price: 1399, category: "suits", image: "suit" },
+
+            // Accessories (20 items)
+            { id: 51, name: "Diamond Eternity Necklace", price: 2499, category: "accessories", image: "accessory" },
+            { id: 52, name: "Gold Infinity Bracelet", price: 899, category: "accessories", image: "accessory" },
+            { id: 53, name: "Platinum Pearl Earrings", price: 1299, category: "accessories", image: "accessory" },
+            { id: 54, name: "Sapphire Statement Ring", price: 1999, category: "accessories", image: "accessory" },
+            { id: 55, name: "Emerald Elegance Watch", price: 3499, category: "accessories", image: "accessory" },
+            { id: 56, name: "Ruby Romance Pendant", price: 1599, category: "accessories", image: "accessory" },
+            { id: 57, name: "Silver Serenity Chain", price: 699, category: "accessories", image: "accessory" },
+            { id: 58, name: "Topaz Treasure Brooch", price: 799, category: "accessories", image: "accessory" },
+            { id: 59, name: "Amethyst Allure Cufflinks", price: 599, category: "accessories", image: "accessory" },
+            { id: 60, name: "Opal Opulence Tiara", price: 2999, category: "accessories", image: "accessory" },
+            { id: 61, name: "Garnet Grace Anklet", price: 499, category: "accessories", image: "accessory" },
+            { id: 62, name: "Citrine Charm Bracelet", price: 749, category: "accessories", image: "accessory" },
+            { id: 63, name: "Aquamarine Aura Necklace", price: 1199, category: "accessories", image: "accessory" },
+            { id: 64, name: "Peridot Prestige Earrings", price: 899, category: "accessories", image: "accessory" },
+            { id: 65, name: "Tanzanite Twilight Ring", price: 2199, category: "accessories", image: "accessory" },
+            { id: 66, name: "Moonstone Magic Pendant", price: 999, category: "accessories", image: "accessory" },
+            { id: 67, name: "Turquoise Tranquility Set", price: 1399, category: "accessories", image: "accessory" },
+            { id: 68, name: "Jade Journey Bracelet", price: 649, category: "accessories", image: "accessory" },
+            { id: 69, name: "Coral Crown Necklace", price: 1099, category: "accessories", image: "accessory" },
+            { id: 70, name: "Onyx Obsession Cufflinks", price: 799, category: "accessories", image: "accessory" },
+
+            // Shoes (15 items)
+            { id: 71, name: "Stiletto Starlight Heels", price: 699, category: "shoes", image: "shoe" },
+            { id: 72, name: "Oxford Opulence Loafers", price: 899, category: "shoes", image: "shoe" },
+            { id: 73, name: "Ballet Bliss Flats", price: 499, category: "shoes", image: "shoe" },
+            { id: 74, name: "Ankle Aristocrat Boots", price: 799, category: "shoes", image: "shoe" },
+            { id: 75, name: "Platform Paradise Pumps", price: 649, category: "shoes", image: "shoe" },
+            { id: 76, name: "Sneaker Sophistication", price: 599, category: "shoes", image: "shoe" },
+            { id: 77, name: "Knee-High Nobility Boots", price: 1199, category: "shoes", image: "shoe" },
+            { id: 78, name: "Wedge Wonderland Sandals", price: 549, category: "shoes", image: "shoe" },
+            { id: 79, name: "Moccasin Majesty Slippers", price: 399, category: "shoes", image: "shoe" },
+            { id: 80, name: "Strappy Seduction Heels", price: 749, category: "shoes", image: "shoe" },
+            { id: 81, name: "Chelsea Champion Boots", price: 899, category: "shoes", image: "shoe" },
+            { id: 82, name: "Espadrille Elegance Wedges", price: 599, category: "shoes", image: "shoe" },
+            { id: 83, name: "Derby Distinction Shoes", price: 799, category: "shoes", image: "shoe" },
+            { id: 84, name: "Thigh-High Throne Boots", price: 1399, category: "shoes", image: "shoe" },
+            { id: 85, name: "Slingback Sophistication", price: 649, category: "shoes", image: "shoe" },
+
+            // Bags (15 items)
+            { id: 86, name: "Tote Treasure Handbag", price: 1299, category: "bags", image: "bag" },
+            { id: 87, name: "Clutch Couture Evening Bag", price: 699, category: "bags", image: "bag" },
+            { id: 88, name: "Satchel Sophistication", price: 999, category: "bags", image: "bag" },
+            { id: 89, name: "Crossbody Crown Bag", price: 599, category: "bags", image: "bag" },
+            { id: 90, name: "Backpack Baroness", price: 799, category: "bags", image: "bag" },
+            { id: 91, name: "Hobo Heaven Handbag", price: 849, category: "bags", image: "bag" },
+            { id: 92, name: "Messenger Majesty Bag", price: 749, category: "bags", image: "bag" },
+            { id: 93, name: "Bucket Bliss Purse", price: 649, category: "bags", image: "bag" },
+            { id: 94, name: "Wristlet Wonderland", price: 399, category: "bags", image: "bag" },
+            { id: 95, name: "Duffel Dynasty Bag", price: 1199, category: "bags", image: "bag" },
+            { id: 96, name: "Briefcase Brilliance", price: 1499, category: "bags", image: "bag" },
+            { id: 97, name: "Fanny Pack Finesse", price: 499, category: "bags", image: "bag" },
+            { id: 98, name: "Laptop Luxury Case", price: 899, category: "bags", image: "bag" },
+            { id: 99, name: "Travel Trunk Treasure", price: 1999, category: "bags", image: "bag" },
+            { id: 100, name: "Vanity Virtue Case", price: 799, category: "bags", image: "bag" }
+        ];
+
+        let cart = [];
+        let currentFilter = 'all';
+
+        // Generate product SVGs
+        function generateProductSVG(type) {
+            const svgs = {
+                dress: `<svg class="w-20 h-20 text-gray-600" viewBox="0 0 100 100" fill="currentColor">
+                    <path d="M50 15 C40 15, 30 25, 30 35 L30 45 C30 55, 25 65, 20 75 L20 90 C20 95, 25 100, 30 100 L70 100 C75 100, 80 95, 80 90 L80 75 C75 65, 70 55, 70 45 L70 35 C70 25, 60 15, 50 15 Z"/>
+                    <circle cx="50" cy="25" r="8" fill="#d4af37"/>
+                </svg>`,
+                suit: `<svg class="w-20 h-20 text-gray-600" viewBox="0 0 100 100" fill="currentColor">
+                    <rect x="25" y="20" width="50" height="65" rx="5"/>
+                    <rect x="30" y="15" width="40" height="10" rx="2"/>
+                    <circle cx="40" cy="35" r="2"/>
+                    <circle cx="60" cy="35" r="2"/>
+                    <rect x="35" y="50" width="30" height="2" fill="#d4af37"/>
+                </svg>`,
+                accessory: `<svg class="w-20 h-20 text-gray-600" viewBox="0 0 100 100" fill="currentColor">
+                    <circle cx="50" cy="50" r="25" fill="none" stroke="currentColor" stroke-width="4"/>
+                    <circle cx="50" cy="50" r="8" fill="#d4af37"/>
+                    <circle cx="35" cy="35" r="3" fill="#d4af37"/>
+                    <circle cx="65" cy="35" r="3" fill="#d4af37"/>
+                    <circle cx="65" cy="65" r="3" fill="#d4af37"/>
+                    <circle cx="35" cy="65" r="3" fill="#d4af37"/>
+                </svg>`,
+                shoe: `<svg class="w-20 h-20 text-gray-600" viewBox="0 0 100 100" fill="currentColor">
+                    <path d="M20 60 C20 55, 25 50, 30 50 L70 50 C75 50, 80 55, 80 60 L80 70 C80 75, 75 80, 70 80 L30 80 C25 80, 20 75, 20 70 Z"/>
+                    <rect x="25" y="45" width="50" height="8" rx="4" fill="#d4af37"/>
+                    <circle cx="75" cy="55" r="3" fill="#d4af37"/>
+                </svg>`,
+                bag: `<svg class="w-20 h-20 text-gray-600" viewBox="0 0 100 100" fill="currentColor">
+                    <rect x="25" y="35" width="50" height="40" rx="5"/>
+                    <path d="M35 35 C35 25, 42 20, 50 20 C58 20, 65 25, 65 35" fill="none" stroke="currentColor" stroke-width="3"/>
+                    <rect x="30" y="45" width="40" height="3" fill="#d4af37"/>
+                </svg>`
+            };
+            return svgs[type] || svgs.dress;
+        }
+
+        // Render products
+        function renderProducts(productsToShow = products) {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+
+            productsToShow.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <div class="product-image">
+                        ${generateProductSVG(product.image)}
+                        <div class="product-overlay">
+                            <button onclick="addToCart(${product.id})" class="btn-luxury text-black px-6 py-3 rounded-full font-semibold">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-semibold mb-2">${product.name}</h3>
+                        <p class="text-gray-600 mb-4 capitalize">${product.category.replace('_', ' ')}</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-gray-900">$${product.price}</span>
+                            <button onclick="viewProduct(${product.id})" class="text-gray-600 hover:text-gray-900 font-medium">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(productCard);
+            });
+        }
+
+        // Filter products
+        function filterProducts(category) {
+            currentFilter = category;
+            
+            // Update filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Filter and render products
+            const filteredProducts = category === 'all' 
+                ? products 
+                : products.filter(product => product.category === category);
+            
+            renderProducts(filteredProducts);
+        }
+
+        // Add to cart
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            updateCartUI();
+        }
+
+        // Update cart UI
+        function updateCartUI() {
+            const cartCount = document.getElementById('cart-count');
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+
+            // Update cart count
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+
+            // Update cart items
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="text-gray-500 text-center py-8">Your cart is empty</p>';
+            } else {
+                cartItems.innerHTML = cart.map(item => `
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                ${generateProductSVG(item.image)}
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">${item.name}</h4>
+                                <p class="text-gray-600">$${item.price} x ${item.quantity}</p>
+                            </div>
+                        </div>
+                        <button onclick="removeFromCart(${item.id})" class="text-red-500 hover:text-red-700">
+                            Remove
+                        </button>
+                    </div>
+                `).join('');
+            }
+
+            // Update total
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            cartTotal.textContent = `$${total.toFixed(2)}`;
+        }
+
+        // Remove from cart
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartUI();
+        }
+
+        // Toggle cart modal
+        function toggleCart() {
+            const modal = document.getElementById('cart-modal');
+            modal.classList.toggle('show');
+        }
+
+        // View product details
+        function viewProduct(productId) {
+            const product = products.find(p => p.id === productId);
+            alert(`Product Details:\n\nName: ${product.name}\nPrice: $${product.price}\nCategory: ${product.category}\n\nThis would open a detailed product page in a real application.`);
+        }
+
+        // Scroll to products
+        function scrollToProducts() {
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Newsletter handler
+        function handleNewsletter(event) {
+            event.preventDefault();
+            const messageEl = document.getElementById('newsletter-message');
+            const form = event.target;
+            
+            messageEl.classList.remove('hidden');
+            form.reset();
+            
+            setTimeout(() => {
+                messageEl.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Scroll effects
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('bg-white/98', 'shadow-xl');
+                nav.classList.remove('bg-white/95');
+            } else {
+                nav.classList.add('bg-white/95');
+                nav.classList.remove('bg-white/98', 'shadow-xl');
+            }
+        });
+
+        // Animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0s';
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements
+        document.querySelectorAll('.card-hover, .fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('cart-modal');
+            if (event.target === modal) {
+                modal.classList.remove('show');
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProducts();
+            updateCartUI();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98b5f070f02eba5b',t:'MTc1OTkyOTY2NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+
